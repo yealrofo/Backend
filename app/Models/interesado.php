@@ -10,6 +10,6 @@ class interesado extends Model
     use HasFactory;
     protected $table = "interesados";
     protected $primarykey = "id";
-    protected $fillable = [ "name","empresa","cargo","vacante","correo","telefono","edad"];
+    protected $fillable = ["name","empresa","cargo","vacante","correo","telefono","edad"];
     
 }

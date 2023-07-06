@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("cargo");
             $table->string("vacante");
             $table->string("correo");
-            $tablinteger("telefono");
+            $table->integer("telefono");
             $table->integer("edad");
             $table->timestamps();
         });
