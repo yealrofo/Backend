@@ -1,23 +1,34 @@
 <?php
 
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\http\Controllers\Api\ContactoController;
+use App\http\Controllers;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
-/*Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+
+Route::get('/pedir',[ContactoController::Class,'read']);
+
+Route::post("/crear",[ContactoController::class,'create']);
+
+Route::put("/cargar",[ContactoController::class,'update']);
+
+Route::delete("/borrar",[ContactoController::class,'delete']);
+
+
+
+
+
+Route::get("/saludo/abc",function (Request $request) {
+    
+    $message = ['mensaje' => "Hola Mundo !"];
+
+    return response()->json($message);
+
 });
-Route */
 
 Route::get("/saludo",function (Request $request) {
     $message = ['mensaje' => "hola Yesid R."];
@@ -33,11 +44,6 @@ Route::put("/libertadores",function (Request $request) {
         'Campeón 2022' => "Flamengo",
         'Campeón 2021' => "Palmeiras",
         'Campeón 2020' => "Palmeiras"
-    
-    ];
+        ];
     return response()->json($message); 
 });
-
-
-
-
