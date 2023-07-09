@@ -58,8 +58,26 @@ class ContactoController extends Controller
 
         $message=[
             "message" => "Actualización Exitosa!!",
-            "IDuser" -> $request->query("id"),
-            "nameUSER"->$cambioUser->name
+            "IDuser" => $request->query("id"),
+            "nameUSER"=>$cambioUser->name
+        ];
+
+        return $message;
+    }
+
+    public function delete(Request $request){
+
+        $idinteresado = $request->query("id");
+
+        $contacto = new interesado();
+
+        $contactoParticular = $contacto->find($idinteresado);
+
+        $contactoParticular->delete();
+
+        $message=[
+            "message" => "Eliminación Exitosa!!",
+            "idinteresado" => $request->query("id"),
         ];
 
         return $message;
